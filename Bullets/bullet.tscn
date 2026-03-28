@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6jyc1ihese5l"]
 
-[ext_resource type="Script" uid="uid://bvqvb3umlcrn" path="res://bullet.gd" id="1_v7oki"]
-[ext_resource type="Texture2D" uid="uid://bwka3hf1jyh51" path="res://bullet.png" id="2_v8qja"]
+[ext_resource type="Script" uid="uid://bvqvb3umlcrn" path="res://Bullets/bullet.gd" id="1_v7oki"]
+[ext_resource type="Texture2D" uid="uid://bwka3hf1jyh51" path="res://Bullets/bullet.png" id="2_v8qja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7oki"]
 radius = 3.0
@@ -9,7 +9,7 @@ radius = 3.0
 [node name="Bullet" type="Area2D" unique_id=2011151866]
 script = ExtResource("1_v7oki")
 damage = 1
-speed = 10.0
+speed = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1049395771]
 rotation = -0.0007067391
