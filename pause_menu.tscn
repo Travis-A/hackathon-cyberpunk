@@ -16,47 +16,37 @@ offset_right = -66.0
 offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.60784316)
+color = Color(0, 0, 0, 0.1764706)
 
-[node name="Button" type="Button" parent="." unique_id=623479231]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1940305686]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -25.0
-offset_bottom = -3.5
+offset_left = -77.0
+offset_top = -86.25
+offset_right = 77.0
+offset_bottom = 86.25
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 8
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=623479231]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 16
 text = "Resume"
 
-[node name="Button2" type="Button" parent="." unique_id=255975791]
-anchors_preset = -1
-anchor_left = 0.50200003
-anchor_top = 0.583
-anchor_right = 0.50200003
-anchor_bottom = 0.583
-offset_left = -59.304016
-offset_top = -17.783997
-offset_right = 58.695984
-offset_bottom = 18.216003
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=255975791]
+layout_mode = 2
+size_flags_vertical = 6
 text = "Options"
 
-[node name="Button3" type="Button" parent="." unique_id=1379157351]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.68100005
-anchor_right = 0.5
-anchor_bottom = 0.68100005
-offset_left = -49.0
-offset_top = -15.288025
-offset_right = 62.0
-offset_bottom = 21.711975
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1379157351]
+layout_mode = 2
+size_flags_vertical = 6
 text = "Main Menu"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_main_menu_pressed"]
