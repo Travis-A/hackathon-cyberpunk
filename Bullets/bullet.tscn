@@ -6,10 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7oki"]
 radius = 3.0
 
-[node name="Bullet" type="Area2D" unique_id=2011151866]
+[node name="Bullet" type="Area2D" unique_id=2011151866 groups=["PlayerBullet"]]
+collision_layer = 0
+collision_mask = 5
 script = ExtResource("1_v7oki")
-damage = 1
+damage = 10
 speed = 500.0
+player_attack = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1049395771]
 rotation = -0.0007067391
@@ -17,3 +20,5 @@ shape = SubResource("CircleShape2D_v7oki")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417094966]
 texture = ExtResource("2_v8qja")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
