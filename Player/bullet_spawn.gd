@@ -10,6 +10,3 @@ func shoot():
 		bullet.global_position = global_position
 		bullet.global_rotation = global_rotation
 		get_tree().current_scene.add_child(bullet)
-
-func change_weapon():
-	pass

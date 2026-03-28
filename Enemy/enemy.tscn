@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bveta640j1hlr"]
+
+[ext_resource type="Script" uid="uid://wvc0fwv3xor3" path="res://Enemy/enemy_movement.gd" id="1_2pb1h"]
+[ext_resource type="Script" uid="uid://ya8lxk2ubkn" path="res://Enemy/enemy.gd" id="1_am0pq"]
+[ext_resource type="Texture2D" uid="uid://lby5nkc51mrr" path="res://Enemy/enemy.png" id="2_px1sc"]
+[ext_resource type="Script" uid="uid://j6mqp37212f" path="res://health.gd" id="4_eqilm"]
+[ext_resource type="Script" uid="uid://dfs3h7sp2c5rr" path="res://hit_detect.gd" id="5_ncf7h"]
+[ext_resource type="Script" uid="uid://das4rk58tppxg" path="res://Enemy/attack.gd" id="6_m6jha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_am0pq"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glvfu"]
+size = Vector2(42, 20)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1968644038 node_paths=PackedStringArray("logic") groups=["Enemy"]]
+collision_layer = 0
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_2pb1h")
+logic = NodePath("enemyLogic")
+stop_distance = 50.0
+
+[node name="enemyLogic" type="Node" parent="." unique_id=1897218111 node_paths=PackedStringArray("health", "melee_hitbox", "cooldown_timer")]
+script = ExtResource("1_am0pq")
+enemy_type = 0
+health = NodePath("../Health")
+melee_hitbox = NodePath("../meleeAttack")
+cooldown_timer = NodePath("../AttackCooldown")
+
+[node name="Health" type="Node" parent="." unique_id=269028605]
+script = ExtResource("4_eqilm")
+max_health = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325343204]
+rotation = 1.5707964
+texture = ExtResource("2_px1sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497321081]
+rotation = -0.032259822
+shape = SubResource("CircleShape2D_am0pq")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1680511005 groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("5_ncf7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2034840956]
+rotation = -0.032259822
+shape = SubResource("CircleShape2D_am0pq")
+
+[node name="meleeAttack" type="Area2D" parent="." unique_id=961622394 node_paths=PackedStringArray("attack_shape")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_m6jha")
+attack_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeAttack" unique_id=2039763655]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_glvfu")
+disabled = true
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=148533773]
+one_shot = true
+
+[connection signal="death" from="Health" to="enemyLogic" method="_on_health_death"]
+[connection signal="area_entered" from="meleeAttack" to="meleeAttack" method="_on_area_entered"]
+[connection signal="timeout" from="AttackCooldown" to="enemyLogic" method="_on_attack_cooldown_timeout"]
