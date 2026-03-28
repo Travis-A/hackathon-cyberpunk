@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d05ttn0v0utn5"]
+
+[ext_resource type="Script" uid="uid://blmmxfrg0vk7x" path="res://Player/bullet_spawn.gd" id="1_016xb"]
+
+[node name="Weapon" type="Node2D" unique_id=578942172]
+script = ExtResource("1_016xb")
+bullet_type = 0
