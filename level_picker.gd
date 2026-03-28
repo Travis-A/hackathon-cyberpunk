@@ -11,13 +11,13 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://level_picker.tscn")
-	
-
-func _on_settings_pressed() -> void:
-	print("option pressed")
+func _on_lvl1_pressed() -> void:
+	get_tree().change_scene_to_file("res://sam_testing_area.tscn")
 
 
-func _on_exit_pressed() -> void:
-	get_tree().quit()
+func _on_lvl2_pressed() -> void:
+	print("add lvl2")
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")
