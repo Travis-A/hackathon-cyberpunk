@@ -15,6 +15,14 @@ run/main_scene="uid://c3klcgp2xus0w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c0shc11xxcwfb"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 moveUp={

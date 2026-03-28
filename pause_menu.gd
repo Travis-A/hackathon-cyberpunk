@@ -1,9 +1,13 @@
 extends CanvasLayer
 
+@onready var pause_buttons: VBoxContainer = $PauseButtons
+@onready var options: Panel = $Options
 
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
+	pause_buttons.visible = true
+	options.visible = false
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -28,3 +32,9 @@ func _on_main_menu_pressed() -> void:
 
 func _on_option_pressed() -> void:
 	print("option pressed")
+	pause_buttons.visible = false
+	options.visible = true
+
+
+func _on_back_options_pressed() -> void:
+	_ready()
