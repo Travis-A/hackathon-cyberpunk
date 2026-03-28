@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @export var bullet_spawn : Node2D
 

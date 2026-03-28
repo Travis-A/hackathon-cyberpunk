@@ -15,6 +15,13 @@ run/main_scene="uid://cwo8lwinpeu3i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Player=""
+Enemy=""
+EnemyBullet=""
+PlayerBullet=""
+
 [input]
 
 moveUp={
