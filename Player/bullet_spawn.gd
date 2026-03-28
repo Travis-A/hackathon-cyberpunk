@@ -1,6 +1,6 @@
 extends Node2D
 
-var bullet_scene = preload("res://bullet.tscn")
+var bullet_scene = preload("res://Bullets/bullet.tscn")
 @export_enum("single", "auto", "spread") var bullet_type
 
 func shoot():

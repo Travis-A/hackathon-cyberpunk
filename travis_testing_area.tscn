@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvu4prq8lxbmc"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_khvu6"]
+[ext_resource type="PackedScene" uid="uid://ldteyh4dhjr6" path="res://Player/player.tscn" id="1_khvu6"]
 
 [node name="travis_testing_area" type="Node2D" unique_id=544833815]
 
