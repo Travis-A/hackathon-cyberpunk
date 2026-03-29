@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://cu7wqpfca4n6w"]
 
 [ext_resource type="Script" uid="uid://dtrsorsp1daxq" path="res://level_picker.gd" id="1_t0c5w"]
+[ext_resource type="Texture2D" uid="uid://32i0gacb2vd5" path="res://Screenshot 2026-03-28 210718.png" id="2_26ynt"]
 [ext_resource type="AudioStream" uid="uid://d3ixa1d4vasps" path="res://Music/psychronic-dystopian-daydreams-278853.mp3" id="2_h8mok"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0j12d"]
+texture = ExtResource("2_26ynt")
+modulate_color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hqlu"]
 bg_color = Color(1, 1, 1, 1)
@@ -40,6 +45,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t0c5w")
+
+[node name="Panel" type="Panel" parent="." unique_id=76724011]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0j12d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1322982851]
 layout_mode = 1
@@ -106,6 +120,18 @@ text = "Back"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1540053309]
 stream = ExtResource("2_h8mok")
 autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1193299584]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_right = 130.5
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 47
+text = "Pick a Level"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_lvl1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_lvl2_pressed"]

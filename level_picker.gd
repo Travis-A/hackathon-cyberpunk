@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_lvl1_pressed() -> void:
-	get_tree().change_scene_to_file("res://sam_testing_area.tscn")
+	get_tree().change_scene_to_file("res://LevelOne.tscn")
 
 
 func _on_lvl2_pressed() -> void:
