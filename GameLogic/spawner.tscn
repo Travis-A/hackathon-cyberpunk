@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b6lavoyhlhlwh" path="res://GameLogic/enemy_spawner.gd" id="1_afedt"]
 
-[node name="Spawner" type="Node" unique_id=1535596294]
+[node name="Spawner" type="Node" unique_id=1535596294 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_afedt")
+timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=1289953854]
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
