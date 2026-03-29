@@ -2,6 +2,7 @@ extends Node
 
 class_name Health
 
+@export var sprite : AnimatedSprite2D
 @export var max_health : int = 100
 var current_health : int
 var is_alive : bool = true
@@ -17,3 +18,6 @@ func hurt(damage : int) -> void:
 		if current_health <= 0:
 			is_alive = false
 			death.emit()
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(.1).timeout
+	sprite.modulate = Color.WHITE

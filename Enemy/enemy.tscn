@@ -154,8 +154,9 @@ health = NodePath("../Health")
 melee_hitbox = NodePath("../meleeAttack")
 cooldown_timer = NodePath("../AttackCooldown")
 
-[node name="Health" type="Node" parent="." unique_id=269028605]
+[node name="Health" type="Node" parent="." unique_id=269028605 node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_eqilm")
+sprite = NodePath("../AnimatedSprite2D")
 max_health = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497321081]
@@ -186,6 +187,7 @@ disabled = true
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=575054111]
+z_index = 2
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_m6jha")
 animation = &"shoot"

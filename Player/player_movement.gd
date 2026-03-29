@@ -25,3 +25,8 @@ func _physics_process(delta: float) -> void:
 	if health.is_alive:
 		look_at(get_global_mouse_position())
 	move_and_slide()
+
+
+func _on_health_death() -> void:
+	await get_tree().create_timer(3).timeout
+	get_tree().reload_current_scene()
