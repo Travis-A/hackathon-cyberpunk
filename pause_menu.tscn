@@ -1,6 +1,52 @@
 [gd_scene format=3 uid="uid://cgr2v40xrxdtb"]
 
 [ext_resource type="Script" uid="uid://dnx3of4cf8woy" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://dml0oq3hkrx2s" path="res://audio_control.gd" id="2_05uyy"]
+[ext_resource type="Script" uid="uid://bp8dkquf5hfef" path="res://fullscreen_control.gd" id="3_p81d2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nc7s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3xb4"]
+bg_color = Color(0.525894, 0.52589405, 0.525894, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxa3g"]
+bg_color = Color(0.71129656, 0.71129656, 0.7112965, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8sti"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_q2yj1"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_a32ks"]
+color = Color(0, 0, 0.6666667, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g7dbl"]
+color = Color(0, 0, 0.6666667, 1)
+thickness = 6
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1998616699]
 process_mode = 3
@@ -18,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.1764706)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1940305686]
+[node name="PauseButtons" type="VBoxContainer" parent="." unique_id=1940305686]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,22 +77,102 @@ offset_bottom = 86.25
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=623479231]
+[node name="Button" type="Button" parent="PauseButtons" unique_id=623479231]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 16
 text = "Resume"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=255975791]
+[node name="Button2" type="Button" parent="PauseButtons" unique_id=255975791]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1379157351]
+[node name="Button3" type="Button" parent="PauseButtons" unique_id=1379157351]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Main Menu"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_main_menu_pressed"]
+[node name="Options" type="Panel" parent="." unique_id=1070884312]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -111.0
+offset_right = 213.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=92194368]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_right = 171.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Options" unique_id=1169985027]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 212.0
+offset_right = 378.0
+offset_bottom = 262.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 9
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d3xb4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxa3g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
+text = "Back"
+
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=932229292]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 69.0
+offset_right = 359.0
+offset_bottom = 101.0
+theme_override_styles/slider = SubResource("StyleBoxLine_q2yj1")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_a32ks")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_g7dbl")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_05uyy")
+audio_bus_name = "Music"
+
+[node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1140138985]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 117.0
+offset_right = 355.0
+offset_bottom = 148.0
+text = "Fullscreen"
+script = ExtResource("3_p81d2")
+
+[node name="Label2" type="Label" parent="Options" unique_id=333479127]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 72.0
+offset_right = 86.0
+offset_bottom = 95.0
+text = "Music"
+
+[connection signal="pressed" from="PauseButtons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseButtons/Button2" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="PauseButtons/Button3" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/FullscreenControl" to="Options/FullscreenControl" method="_on_toggled"]
