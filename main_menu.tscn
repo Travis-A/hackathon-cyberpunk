@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c3klcgp2xus0w"]
 
 [ext_resource type="Script" uid="uid://dgsg7w2t3exh" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Script" path="res://audio_control.gd" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://dml0oq3hkrx2s" path="res://audio_control.gd" id="2_7vrkn"]
 [ext_resource type="AudioStream" uid="uid://d3ixa1d4vasps" path="res://Music/psychronic-dystopian-daydreams-278853.mp3" id="2_jix8l"]
-[ext_resource type="Script" path="res://fullscreen_control.gd" id="3_fu7sn"]
+[ext_resource type="Script" uid="uid://bp8dkquf5hfef" path="res://fullscreen_control.gd" id="3_fu7sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(1, 1, 1, 1)
@@ -124,6 +124,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=1881901312]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
