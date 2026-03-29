@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dgsg7w2t3exh" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://dml0oq3hkrx2s" path="res://audio_control.gd" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://32i0gacb2vd5" path="res://Screenshot 2026-03-28 210718.png" id="2_glbon"]
 [ext_resource type="AudioStream" uid="uid://d3ixa1d4vasps" path="res://Music/psychronic-dystopian-daydreams-278853.mp3" id="2_jix8l"]
 [ext_resource type="Script" uid="uid://bp8dkquf5hfef" path="res://fullscreen_control.gd" id="3_fu7sn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
+texture = ExtResource("2_glbon")
+modulate_color = Color(0.39841208, 0.3984121, 0.39841208, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(1, 1, 1, 1)
@@ -58,8 +63,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
 
+[node name="Panel" type="Panel" parent="." unique_id=81170598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
+
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1696718304]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -201,6 +214,18 @@ offset_top = 72.0
 offset_right = 86.0
 offset_bottom = 95.0
 text = "Music"
+
+[node name="Label" type="Label" parent="." unique_id=1350574507]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.5
+offset_right = 177.5
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Bullet Punk"
 
 [connection signal="pressed" from="MainButtons/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings_pressed"]
