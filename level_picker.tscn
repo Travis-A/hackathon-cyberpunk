@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu7wqpfca4n6w"]
 
 [ext_resource type="Script" uid="uid://dtrsorsp1daxq" path="res://level_picker.gd" id="1_t0c5w"]
+[ext_resource type="AudioStream" uid="uid://d3ixa1d4vasps" path="res://Music/psychronic-dystopian-daydreams-278853.mp3" id="2_h8mok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hqlu"]
 bg_color = Color(1, 1, 1, 1)
@@ -101,6 +102,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_t0c5w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h8mok")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7hqlu")
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1540053309]
+stream = ExtResource("2_h8mok")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_lvl1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_lvl2_pressed"]
